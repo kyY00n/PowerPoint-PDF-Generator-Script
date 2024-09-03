@@ -41,6 +41,29 @@ If you encounter permission issues, try running the command in an administrative
 pip install comtypes --user
 ```
 
+## For Mac users
+
+If you are using MacOS, you might get an error like below.
+```
+ImportError: COM technology not available (maybe it's the wrong platform).
+Note that COM is only supported on Windows.
+For more details, please check: https://learn.microsoft.com/en-us/windows/win32/com
+```
+
+### Requirements
+
+To avoid COM technology error, I revised converting logic in function `create_pdf_from_ppt` with `libreoffice`. So we don't need `comtypes` anymore.
+
+`libreoffice`
+  - can be installed by homebrew: `brew install --cask libreoffice`
+  - FYI: How to use in command line : `soffice [command] [argument]`
+
+#### pip install
+
+```bash
+pip install -r 'requirements-mac.txt'
+```
+
 ## Usage
 
 1. **Ensure Required Files**: Place the `required.pptx` template and `required.csv` are in the same directory as the script.
